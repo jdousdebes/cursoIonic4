@@ -18,7 +18,6 @@ import {JWT_OPTIONS, JwtModule} from '@auth0/angular-jwt';
 import {environment} from '../environments/environment';
 import {GooglePlus} from '@ionic-native/google-plus/ngx';
 
-
 const IONIC_NATIVE_PROVIDERS = [
   GooglePlus,
 ];

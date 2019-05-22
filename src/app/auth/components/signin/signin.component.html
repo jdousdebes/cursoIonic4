@@ -1,12 +1,9 @@
 <div fxLayout="row"
      fxLayoutAlign="center center"
      class="p-3">
-  <button (click)="signin()" matRipple
-          class="googleplus-button relative">
-    <img src="assets/img/google.svg"
-         class="w-4 w-4 mr-2">
-
-    <span translate>Ingresar con Google</span>
-  </button>
+  <ion-button (click)="signin()">
+    <ion-icon slot="start" name="logo-google"></ion-icon>
+    Ingresar con Google
+  </ion-button>
 </div>
 

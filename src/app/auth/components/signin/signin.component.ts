@@ -31,11 +31,12 @@ export class SigninComponent implements OnInit {
       const payload = await this.googlePlus.login({
         webClientId: environment.googleplus.webClientId,
       });
-
-      const params = new HttpParams().set('idToken', payload.idToken);
+      console.log('payload', payload);
+      const params = (new HttpParams()).set('idToken', payload.idToken);
       this.sessionService
         .signin(params)
         .subscribe((response: any) => {
+          console.log('r', response);
           if (response.user) {
             console.log('response: ', response.user);
           }
