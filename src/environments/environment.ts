@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  host: 'http://192.168.1.105',
-  api: 'http://192.168.1.105:8000/api/',
+  host: 'http://localhost',
+  api: 'http://localhost:8000/api/',
 
   spotify: {
     client_id: '4af55c2187984f31bd9b32ca2719e595',

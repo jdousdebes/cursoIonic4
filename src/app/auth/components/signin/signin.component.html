@@ -1,9 +1,19 @@
 <div fxLayout="row"
      fxLayoutAlign="center center"
      class="p-3">
-  <ion-button (click)="signin()">
+  <ion-button *ngIf="! user" (click)="signin()">
     <ion-icon slot="start" name="logo-google"></ion-icon>
     Ingresar con Google
   </ion-button>
+
+  <ion-list *ngIf="user">
+    <ion-list-header>
+      <img [src]="user.picture">
+      {{user.name}}
+    </ion-list-header>
+    <ion-item>
+      <span>{{user.email}}</span>
+    </ion-item>
+  </ion-list>
 </div>
 

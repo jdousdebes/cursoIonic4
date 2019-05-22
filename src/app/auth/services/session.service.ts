@@ -19,11 +19,7 @@ export class SessionService {
       .get(environment.api + 'signin/', {params})
       .pipe(
           tap(async (token: string) => {
-            console.log('token1: ', token);
             await this.storage.set('token', token);
-            // this.sessionStore.update(({
-            //   token: token,
-            // }));
           }),
         );
   }

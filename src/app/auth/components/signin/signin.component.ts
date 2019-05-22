@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NavController, Platform} from '@ionic/angular';
 import {GooglePlus} from '@ionic-native/google-plus/ngx';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpParams} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
 import {SessionService} from '../../services/session.service';
 
@@ -12,41 +12,40 @@ import {SessionService} from '../../services/session.service';
 })
 export class SigninComponent implements OnInit {
 
-  loading: boolean = false;
+  user: any = null;
 
   constructor(
     private navCtrl: NavController,
     private platform: Platform,
     private googlePlus: GooglePlus,
     private sessionService: SessionService,
-    private http: HttpClient,
   ) { }
 
   ngOnInit() { }
 
   async signin() {
-    this.loading = true;
     try {
       await this.platform.ready();
       const payload = await this.googlePlus.login({
         webClientId: environment.googleplus.webClientId,
       });
-      console.log('payload', payload);
-      const params = (new HttpParams()).set('idToken', payload.idToken);
+
+      const params = new HttpParams().set('idToken', payload.idToken);
+
       this.sessionService
         .signin(params)
-        .subscribe((response: any) => {
-          console.log('r', response);
+        .subscribe(
+          (response: any) => {
           if (response.user) {
-            console.log('response: ', response.user);
+            this.user = response.user;
+            console.log('response: ', this.user);
           }
-          // if (me) {
-          //   this.navCtrl.navigateRoot(['/home']);
-          // }
-        }, (error) => console.log('error: ', error));
+        },
+          (error) => {
+            console.log('error: ', error);
+          });
     } catch (e) {
-      this.loading = false;
-      console.error(e);
+      console.error('error: ', e);
       // this.toast.error(this.translate.instant(
       //   'No pudimos obtener autorización de Google. Por favor intenta de nuevo.'
       // ));
