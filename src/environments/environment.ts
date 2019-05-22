@@ -3,7 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  host: 'http://192.168.1.105',
+  api: 'http://192.168.1.105:8000/api/',
+
+  spotify: {
+    client_id: '4af55c2187984f31bd9b32ca2719e595',
+    redirect_uri: 'http://localhost:8888',
+  },
+
+  googleplus: {
+    webClientId: '74371797188-k2gl3caksct5sa58scfq9uq0eo9p5ctt.apps.googleusercontent.com',
+  },
 };
 
 /*
