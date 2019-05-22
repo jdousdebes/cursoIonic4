@@ -1,12 +1,25 @@
 <div fxLayout="row"
      fxLayoutAlign="center center"
      class="p-3">
-  <button (click)="signin()" matRipple
+  <button *ngIf="! user"
+          (click)="signin()"
+          matRipple
           class="googleplus-button relative">
     <img src="assets/img/google.svg"
-         class="w-4 w-4 mr-2">
-
+         class="mr-2">
     <span translate>Ingresar con Google</span>
   </button>
+
+
+  <ion-list *ngIf="user">
+    <ion-list-header>
+      <img [src]="user.picture">
+      {{user.name}}
+    </ion-list-header>
+    <ion-item>
+      <span>{{user.email}}</span>
+    </ion-item>
+  </ion-list>
+
 </div>
 
