@@ -3,7 +3,7 @@ import {SubjectService} from "../services/subject.service";
 import {Storage} from "@ionic/storage";
 import {HttpHeaders} from "@angular/common/http";
 import {PopoverController} from "@ionic/angular";
-import {SubjectDetailComponent} from "../components/subject-detail/subject-detail.component";
+import {SubjectDetailComponent} from "../../shared/components/subject-detail/subject-detail.component";
 
 @Component({
   selector: 'app-available-subjects',
