@@ -4,6 +4,7 @@ import {GooglePlus} from '@ionic-native/google-plus/ngx';
 import {HttpParams} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
 import {SessionService} from '../../services/session.service';
+import {Storage} from "@ionic/storage";
 
 @Component({
   selector: 'app-signin',
@@ -19,9 +20,13 @@ export class SigninComponent implements OnInit {
     private platform: Platform,
     private googlePlus: GooglePlus,
     private sessionService: SessionService,
+    private storage: Storage,
   ) { }
 
-  ngOnInit() { }
+  async ngOnInit() {
+    const token = await this.storage.get('token');
+    this.user = token ? token.user : null;
+  }
 
   async signin() {
     try {
@@ -30,7 +35,13 @@ export class SigninComponent implements OnInit {
         webClientId: environment.googleplus.webClientId,
       });
 
+      // Forma 1.
       const params = new HttpParams().set('idToken', payload.idToken);
+
+      // // Forma 2.
+      // const params = {
+      //   'idToken': payload.idToken,
+      // };
 
       this.sessionService
         .signin(params)

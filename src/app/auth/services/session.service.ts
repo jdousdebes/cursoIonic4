@@ -14,9 +14,9 @@ export class SessionService {
     private storage: Storage,
   ) { }
 
-  signin(params: HttpParams) {
+  signin(params: any) {
     return this.http
-      .get(environment.api + 'signin/', {params})
+      .post(environment.api + 'signin/', params)
       .pipe(
           tap(async (token: string) => {
             await this.storage.set('token', token);

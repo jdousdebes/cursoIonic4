@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cursos disponibles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>Materias disponibles</ion-list-header>
+    <ion-item *ngFor="let subject of subjects" (click)="seeSubjectDetail(subject)">{{subject.name}}</ion-item>
+  </ion-list>
+</ion-content>
