@@ -1,32 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController, Platform } from '@ionic/angular';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
-import { HttpParams } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
-import { SessionService } from '../../services/session.service';
 import { Storage } from '@ionic/storage';
 import { ToastService } from '../../../shared/services/toast.service';
-import { Subject } from 'rxjs';
+import { environment } from '../../../../environments/environment';
+import { SessionQuery } from '../../state/session.query';
+import { SessionService } from '../../state/session.service';
 
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss'],
+  selector: 'app-signin-akita',
+  templateUrl: './signin-akita.component.html',
+  styleUrls: ['./signin-akita.component.scss'],
 })
-export class SigninComponent implements OnInit {
-  user$: Subject<any> = this.sessionService.user$;
+export class SigninAkitaComponent implements OnInit {
+  user$ = this.sessionQuery.user$;
 
   constructor(
     private navCtrl: NavController,
     private alertController: AlertController,
     private platform: Platform,
     private googlePlus: GooglePlus,
-    private sessionService: SessionService,
     private storage: Storage,
     private toast: ToastService,
+    private sessionQuery: SessionQuery,
+    private sessionService: SessionService,
   ) {}
 
-  async ngOnInit() {}
+  async ngOnInit() {
+    this.user$.subscribe(user => console.debug('user$', user));
+  }
 
   async signin() {
     try {
@@ -34,25 +36,9 @@ export class SigninComponent implements OnInit {
       const payload = await this.googlePlus.login({
         webClientId: environment.googleplus.webClientId,
       });
-
-      // Forma 1.
-      const params = new HttpParams().set('idToken', payload.idToken);
-
-      // // Forma 2.
-      // const params = {
-      //   'idToken': payload.idToken,
-      // };
-
-      this.sessionService.signin(params).subscribe(
-        (response: any) => {
-          if (response.user) {
-            this.toast.show('¡Bienvenid@!');
-          }
-        },
-        error => {
-          console.log('error: ', error);
-        },
-      );
+      this.sessionService.signin(payload.idToken).subscribe(() => {
+        this.toast.show('¡Bienvenid@!');
+      });
     } catch (e) {
       this.toast.show('Ocurrió un error. Por favor intenta de nuevo');
     }

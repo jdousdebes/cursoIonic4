@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { SessionService } from './auth/services/session.service';
+import {SessionService} from './auth/state/session.service';
+// import { SessionService } from './auth/services/session.service';
 
 @Component({
   selector: 'app-root',

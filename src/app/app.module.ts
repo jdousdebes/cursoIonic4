@@ -17,6 +17,7 @@ import {IonicStorageModule, Storage} from '@ionic/storage';
 import {JWT_OPTIONS, JwtModule} from '@auth0/angular-jwt';
 import {environment} from '../environments/environment';
 import {GooglePlus} from '@ionic-native/google-plus/ngx';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 
 const IONIC_NATIVE_PROVIDERS = [
   GooglePlus,
@@ -65,6 +66,8 @@ export function jwtOptionsFactory() {
         useFactory: jwtOptionsFactory
       },
     }),
+
+    environment.production ? [] : AkitaNgDevtools.forRoot(),
   ],
   providers: [
     StatusBar,
