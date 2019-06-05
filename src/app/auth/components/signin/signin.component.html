@@ -6,14 +6,22 @@
     Ingresar con Google
   </ion-button>
 
-  <ion-list *ngIf="user">
-    <ion-list-header>
-      <img [src]="user.picture">
-      {{user.name}}
-    </ion-list-header>
-    <ion-item>
-      <span>{{user.email}}</span>
-    </ion-item>
-  </ion-list>
+  <div fxLayout="column"
+       fxLayoutAlign="2rem">
+    <ion-list *ngIf="user">
+      <ion-list-header>
+        <img [src]="user.picture">
+        {{user.name}}
+      </ion-list-header>
+      <ion-item>
+        <span>{{user.email}}</span>
+      </ion-item>
+    </ion-list>
+
+    <ion-button *ngIf="user" (click)="logout()">
+      <ion-icon slot="start" name="log-out"></ion-icon>
+      Salir
+    </ion-button>
+  </div>
 </div>
 

@@ -23,4 +23,9 @@ export class SessionService {
           }),
         );
   }
+
+  async logout() {
+    await this.storage.remove('token');
+  }
+
 }
