@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { SessionService } from './auth/services/session.service';
+import { SessionService } from './auth/state/session.service';
+// import { SessionService } from './auth/services/session.service';
 
 @Component({
   selector: 'app-root',
@@ -33,6 +34,7 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private sessionService: SessionService,
+    private alertController: AlertController,
   ) {
     this.initializeApp();
   }
@@ -44,5 +46,29 @@ export class AppComponent {
 
       this.sessionService.check();
     });
+  }
+
+  logout() {
+    this.alertController
+      .create({
+        header: 'Desloguearse',
+        message: 'Seguro de qe quieres salir?',
+        buttons: [
+          {
+            text: 'Aceptar',
+            handler: () => {
+              this.sessionService.logout();
+            },
+          },
+          {
+            text: 'Cancelar',
+            role: 'cancel',
+            cssClass: 'secondary',
+          },
+        ],
+      })
+      .then(alert => {
+        alert.present();
+      });
   }
 }

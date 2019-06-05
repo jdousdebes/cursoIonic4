@@ -6,3 +6,12 @@ Cordova reference documentation:
 
 - Icons: https://cordova.apache.org/docs/en/latest/config_ref/images.html
 - Splash Screens: https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-splashscreen/
+
+
+# Akita
+
+ng add @datorama/akita
+
+## Akita schematics
+
+ng g @datorama/akita:feature {module}/{feature}

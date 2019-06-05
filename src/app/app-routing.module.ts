@@ -13,6 +13,7 @@ const routes: Routes = [
   },
   { path: 'my-profile', loadChildren: './my-profile/my-profile.module#MyProfilePageModule' },
   { path: 'available-subjects', loadChildren: './subject/available-subjects/available-subjects.module#AvailableSubjectsPageModule' },
+  { path: 'home2', loadChildren: './home2/home2/home2.module#Home2PageModule' },
 ];
 
 @NgModule({
