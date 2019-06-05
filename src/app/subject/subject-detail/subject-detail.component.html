@@ -1,0 +1,16 @@
+<div fxLayout="column"
+     fxLayoutGap="2rem">
+  <ion-list *ngIf="subject">
+    <ion-list-header>Detalle de la materia</ion-list-header>
+    <ion-item>{{subject?.name}}</ion-item>
+    <ion-list-header>Descripción</ion-list-header>
+    <ion-item>{{subject?.description}}</ion-item>
+    <ion-list-header>Profesor</ion-list-header>
+    <ion-item>{{subject?.user?.name}}</ion-item>
+    <ion-item>
+      <img [src]="subject?.picture">
+    </ion-item>
+    <ion-list-header>Email</ion-list-header>
+    <ion-item>{{subject?.email}}</ion-item>
+  </ion-list>
+</div>

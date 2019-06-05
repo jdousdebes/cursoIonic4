@@ -16,6 +16,16 @@ export class SubjectService {
 
   getAvailableSubjects(headers: HttpHeaders) {
     return this.http
-      .get(environment.api + 'subjects/all', {headers});
+      .get(environment.api + 'subjects/all');
+    // return this.http
+    //   .get(environment.api + 'subjects/all', {headers});
   }
+
+  getSubjectDetail(headers: HttpHeaders, subjectId) {
+    return this.http
+      .get(environment.api + 'subjects/' + subjectId);
+    // return this.http
+    //   .get(environment.api + 'subjects/' + subjectId, {headers});
+  }
+
 }

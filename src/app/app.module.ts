@@ -17,6 +17,7 @@ import {IonicStorageModule, Storage} from '@ionic/storage';
 import {JWT_OPTIONS, JwtModule} from '@auth0/angular-jwt';
 import {environment} from '../environments/environment';
 import {GooglePlus} from '@ionic-native/google-plus/ngx';
+import {SubjectDetailComponent} from './subject/subject-detail/subject-detail.component';
 
 const IONIC_NATIVE_PROVIDERS = [
   GooglePlus,
@@ -34,8 +35,8 @@ export function jwtOptionsFactory() {
 }
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, SubjectDetailComponent],
+  entryComponents: [SubjectDetailComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

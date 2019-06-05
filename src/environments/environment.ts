@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  host: 'curso.hawk-srl.com',
-  api: 'https://curso.hawk-srl.com/api/',
+  host: 'http://localhost',
+  api: 'http://localhost:8000/api/',
 
   googleplus: {
     webClientId: '74371797188-k2gl3caksct5sa58scfq9uq0eo9p5ctt.apps.googleusercontent.com',
