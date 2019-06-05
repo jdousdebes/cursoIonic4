@@ -27,4 +27,9 @@ export class SubjectDetailComponent implements OnInit {
       });
   }
 
+
+  closePopover() {
+    this.popoverController.dismiss();
+  }
+
 }
