@@ -1,20 +1,14 @@
-<div fxLayout="row"
-     fxLayoutAlign="center center"
-     class="p-3">
-  <ion-button *ngIf="! user" (click)="signin()">
+<div fxLayout="row" fxLayoutAlign="center center" class="p-3">
+  <ion-button *ngIf="!(user$ | async)" (click)="signin()">
     <ion-icon slot="start" name="logo-google"></ion-icon>
     Ingresar con Google
   </ion-button>
 
-  <div fxLayout="column"
-       fxLayoutAlign="2rem">
-    <ion-list *ngIf="user">
-      <ion-list-header>
-        <img [src]="user.picture">
-        {{user.name}}
-      </ion-list-header>
+  <div *ngIf="(user$ | async) as user" fxLayout="column" fxLayoutAlign="2rem">
+    <ion-list>
+      <ion-list-header> <img [src]="user.picture" /> {{ user.name }} </ion-list-header>
       <ion-item>
-        <span>{{user.email}}</span>
+        <span>{{ user.email }}</span>
       </ion-item>
     </ion-list>
 
@@ -24,4 +18,3 @@
     </ion-button>
   </div>
 </div>
-

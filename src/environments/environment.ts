@@ -4,13 +4,8 @@
 
 export const environment = {
   production: false,
-  host: 'http://localhost',
-  api: 'http://localhost:8000/api/',
-
-  spotify: {
-    client_id: '4af55c2187984f31bd9b32ca2719e595',
-    redirect_uri: 'http://localhost:8888',
-  },
+  host: 'curso.hawk-srl.com',
+  api: 'https://curso.hawk-srl.com/api/',
 
   googleplus: {
     webClientId: '74371797188-k2gl3caksct5sa58scfq9uq0eo9p5ctt.apps.googleusercontent.com',

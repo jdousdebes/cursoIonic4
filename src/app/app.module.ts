@@ -70,7 +70,7 @@ export function jwtOptionsFactory() {
     StatusBar,
     SplashScreen,
     IONIC_NATIVE_PROVIDERS,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent]
 })
