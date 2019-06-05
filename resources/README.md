@@ -9,8 +9,9 @@ Cordova reference documentation:
 
 
 # Akita
-Instalar akita
 
 ng add @datorama/akita
 
-ng config cli.defaultCollection @datorama/akita
+## Akita schematics
+
+ng g @datorama/akita:feature {module}/{feature}
