@@ -12,7 +12,7 @@ export class MySubjectsPage implements OnInit {
   constructor(private subjectService: SubjectService) {}
 
   ngOnInit() {
-    this.subjectService.getAvailableSubjects().subscribe((response: any) => {
+    this.subjectService.getSubjects().subscribe((response: any) => {
       this.subjects = response.data;
     });
   }

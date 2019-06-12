@@ -19,7 +19,7 @@ export class AppComponent {
     {
       title: 'Mis cursos',
       url: '/my-subjects',
-      icon: 'list',
+      icon: 'list-box',
     },
     {
       title: 'Cursos disponibles',
