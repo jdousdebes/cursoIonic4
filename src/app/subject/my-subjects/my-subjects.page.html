@@ -1,14 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
+    <ion-buttons slot="start"> <ion-back-button defaultHref="/"></ion-back-button> </ion-buttons>
     <ion-title>Mis materias</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list lines="full">
-    <ion-item *ngFor="let subject of subjects" routerLink='/subjects/{{subject.id}}' button detail>{{subject.name}}</ion-item>
+    <ion-col *ngIf="subjects && !subjects.length">
+      <ion-row justify-content-center>Aún no te has subscripto a una materia</ion-row>
+      <ion-row justify-content-center>
+        <ion-button routerLink="/available-subjects">Ver materias disponibles</ion-button>
+      </ion-row>
+    </ion-col>
+    <ion-item *ngFor="let subject of subjects" routerLink="/subjects/{{subject.id}}" button detail
+      >{{subject.name}}</ion-item
+    >
   </ion-list>
 </ion-content>

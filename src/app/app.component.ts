@@ -17,12 +17,12 @@ export class AppComponent {
       icon: 'home',
     },
     {
-      title: 'Mis cursos',
+      title: 'Mis materias',
       url: '/my-subjects',
       icon: 'list-box',
     },
     {
-      title: 'Cursos disponibles',
+      title: 'Materias disponibles',
       url: '/available-subjects',
       icon: 'list',
     },
