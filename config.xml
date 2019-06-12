@@ -91,6 +91,6 @@
         <variable name="WEB_APPLICATION_CLIENT_ID" value="74371797188-k2gl3caksct5sa58scfq9uq0eo9p5ctt.apps.googleusercontent.com" />
     </plugin>
     <allow-navigation href="http://192.168.1.105:8100" sessionid="b8b87273" />
-    <allow-navigation href="http://192.168.100.5:8100" sessionid="21d758f0" />
+    <allow-navigation href="http://192.168.100.5:8100" sessionid="f1506d14" />
     <engine name="browser" spec="5.0.4" />
 </widget>

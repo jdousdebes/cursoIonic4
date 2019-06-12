@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SessionService} from '../../auth/state/session.service';
+import {SessionQuery} from '../../auth/state/session.query';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  user$ = this.sessionQuery.user$;
+
+  constructor(
+    private sessionQuery: SessionQuery,
+    private sessionService: SessionService
+  ) { }
 
   ngOnInit() {
   }

@@ -6,25 +6,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { HomePage } from './home-page.component';
-import {SharedModule} from '../../shared/shared.module';
-import {AuthModule} from '../../auth/auth.module';
+import { AuthModule } from '../../auth/auth.module';
+import { TodoModule } from '../../todo/todo.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
-  }
+    component: HomePage,
+  },
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes),
-    SharedModule,
-    AuthModule,
-  ],
-  declarations: [HomePage]
+  imports: [CommonModule, FormsModule, IonicModule, RouterModule.forChild(routes), AuthModule, TodoModule],
+  declarations: [HomePage],
 })
 export class HomePageModule {}
