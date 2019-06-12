@@ -6,16 +6,9 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid *ngIf="!(user$ | async)" class="min-h-full">
+  <ion-grid class="min-h-full">
     <ion-row class="flex">
       <ion-col size="12"> <app-signin-akita></app-signin-akita> </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-grid *ngIf="(user$ | async)" class="min-h-full">
-    <ion-row>
-      <h1>Lista de tareas</h1>
-      <ion-col size="12"> <app-todo-list></app-todo-list> </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

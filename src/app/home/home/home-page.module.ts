@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { HomePage } from './home-page.component';
 import { AuthModule } from '../../auth/auth.module';
-import { TodoModule } from '../../todo/todo.module';
 
 const routes: Routes = [
   {
@@ -17,7 +16,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, RouterModule.forChild(routes), AuthModule, TodoModule],
+  imports: [CommonModule, FormsModule, IonicModule, RouterModule.forChild(routes), AuthModule],
   declarations: [HomePage],
 })
 export class HomePageModule {}
