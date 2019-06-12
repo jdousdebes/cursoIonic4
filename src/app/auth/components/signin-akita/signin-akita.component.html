@@ -1,20 +1,31 @@
-<div fxLayout="row" fxLayoutAlign="center center" class="p-3">
+<ion-row justify-content-center>
   <ion-button *ngIf="!(user$ | async)" (click)="signin()">
     <ion-icon slot="start" name="logo-google"></ion-icon>
     Ingresar con Google
   </ion-button>
 
-  <div *ngIf="(user$ | async) as user" fxLayout="column" fxLayoutAlign="2rem">
-    <ion-list>
-      <ion-list-header> <img [src]="user.picture" /> {{ user.name }} </ion-list-header>
-      <ion-item>
-        <span>{{ user.email }}</span>
-      </ion-item>
-    </ion-list>
+  <ion-col *ngIf="(user$ | async) as user">
+    <ion-card>
+      <ion-card-content>
+        <ion-row>
+          <ion-col size="4">
+            <ion-avatar>
+              <img [src]="user.picture">
+            </ion-avatar>
+          </ion-col>
 
-    <ion-button *ngIf="user" (click)="logout()">
-      <ion-icon slot="start" name="log-out"></ion-icon>
-      Salir
-    </ion-button>
-  </div>
-</div>
+          <ion-col size="8">
+            <ion-row><span>{{user.name}}</span></ion-row>
+            <ion-row><span>{{user.email}}</span></ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row justify-content-end>
+          <ion-button *ngIf="user" (click)="logout()" fill="clear">
+            <ion-icon slot="start" name="log-out"></ion-icon>
+            Salir
+          </ion-button>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+</ion-row>

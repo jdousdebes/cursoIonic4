@@ -17,7 +17,6 @@ export class SubjectPage implements OnInit {
     const subjectId = this.route.snapshot.paramMap.get('subjectId');
     this.subjectService.getSubjectDetail(subjectId).subscribe((response: any) => {
       this.subject = response.data;
-      console.log('this.subject', this.subject);
     });
   }
 

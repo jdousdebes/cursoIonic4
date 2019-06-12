@@ -1,5 +1,9 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+
     <ion-title>Cursos disponibles</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,6 +11,6 @@
 <ion-content>
   <ion-list>
     <ion-list-header>Materias disponibles</ion-list-header>
-    <ion-item *ngFor="let subject of subjects" routerLink='/subject/{{subject.id}}' button>{{subject.name}}</ion-item>
+    <ion-item *ngFor="let subject of subjects" routerLink='/subjects/{{subject.id}}' button>{{subject.name}}</ion-item>
   </ion-list>
 </ion-content>
