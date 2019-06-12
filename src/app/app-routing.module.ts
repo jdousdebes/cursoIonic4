@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'available-subjects', loadChildren: './subject/available-subjects/available-subjects.module#AvailableSubjectsPageModule' },
   { path: 'home', loadChildren: './home/home/home-page.module#HomePageModule' },
   { path: 'subjects/:subjectId', loadChildren: './subject/subject/subject.module#SubjectPageModule' },
+  { path: 'my-subjects', loadChildren: './subject/my-subjects/my-subjects.module#MySubjectsPageModule' },
 ];
 
 @NgModule({

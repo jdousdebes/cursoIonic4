@@ -8,6 +8,10 @@ import { environment } from '../../../environments/environment';
 export class SubjectService {
   constructor(private http: HttpClient) {}
 
+  getSubjects() {
+    return this.http.get(environment.api + 'subjects');
+  }
+
   getAvailableSubjects() {
     return this.http.get(environment.api + 'subjects/all');
   }
