@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
-import { AlertController, Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { SessionService } from './auth/state/session.service';
-// import { SessionService } from './auth/services/session.service';
+import {AlertController, Platform} from '@ionic/angular';
+import {SplashScreen} from '@ionic-native/splash-screen/ngx';
+import {StatusBar} from '@ionic-native/status-bar/ngx';
+import {SessionService} from './auth/state/session.service';
 
 @Component({
   selector: 'app-root',
@@ -46,8 +45,8 @@ export class AppComponent {
   logout() {
     this.alertController
       .create({
-        header: 'Desloguearse',
-        message: 'Seguro de qe quieres salir?',
+        header: 'Cerrar sesión',
+        message: '¿Seguro que deseas salir?',
         buttons: [
           {
             text: 'Aceptar',
