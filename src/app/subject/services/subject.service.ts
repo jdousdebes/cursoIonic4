@@ -1,46 +1,22 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Storage} from '@ionic/storage';
-import {environment} from "../../../environments/environment";
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SubjectService {
-
-  headers: any;
-
-  constructor(
-    private http: HttpClient,
-    private storage: Storage,
-  ) {
-    this.init();
-  }
-
-  async init() {
-    const token = await this.storage.get('token');
-    this.headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + token,
-    });
-  }
+  constructor(private http: HttpClient) {}
 
   getAvailableSubjects() {
-    const headers = this.headers;
-    return this.http
-      .get(environment.api + 'subjects/all', {headers});
+    return this.http.get(environment.api + 'subjects/all');
   }
 
   getSubjectDetail(subjectId) {
-    const headers = this.headers;
-    return this.http
-      .get(environment.api + 'subjects/' + subjectId + '/see', {headers});
+    return this.http.get(environment.api + 'subjects/' + subjectId + '/see');
   }
 
   joinSubject(subjectId) {
-    const headers = this.headers;
-    return this.http
-      .post(environment.api + 'subjects/' + subjectId + '/join', {headers});
+    return this.http.post(environment.api + 'subjects/' + subjectId + '/join', {});
   }
-
 }

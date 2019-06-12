@@ -16,13 +16,9 @@ import {IonicStorageModule, Storage} from '@ionic/storage';
 
 import {JWT_OPTIONS, JwtModule} from '@auth0/angular-jwt';
 import {environment} from '../environments/environment';
-import {GooglePlus} from '@ionic-native/google-plus/ngx';
-import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
-import {SubjectDetailComponent} from './subject/subject-detail/subject-detail.component';
 
-const IONIC_NATIVE_PROVIDERS = [
-  GooglePlus,
-];
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import {GooglePlus} from '@ionic-native/google-plus/ngx';
 
 // JWT
 const storage = new Storage({});
@@ -73,8 +69,8 @@ export function jwtOptionsFactory() {
   providers: [
     StatusBar,
     SplashScreen,
-    IONIC_NATIVE_PROVIDERS,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    GooglePlus,
   ],
   bootstrap: [AppComponent]
 })

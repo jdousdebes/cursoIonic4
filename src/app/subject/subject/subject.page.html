@@ -3,9 +3,9 @@
     <ion-title>{{subject?.name}}</ion-title>
 
     <ion-buttons slot="end">
-      <ion-button *ngIf="! subject?.inMySubjects" (click)="joinSubject(subject.id)" color="primary" fill="solid">Unirse a la materia</ion-button>
+      <ion-button *ngIf="! subject?.inMySubjects" (click)="joinSubject(subject.id)" color="primary" fill="solid">Subscribirse a la materia</ion-button>
       <ion-chip *ngIf="subject?.inMySubjects" color="success">
-        <ion-label>Ya estas registrado en la materia!</ion-label>
+        <ion-label>Subscripto</ion-label>
       </ion-chip>
     </ion-buttons>
   </ion-toolbar>

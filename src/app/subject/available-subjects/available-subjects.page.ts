@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {SubjectService} from "../services/subject.service";
-import {Storage} from "@ionic/storage";
-import {HttpHeaders} from "@angular/common/http";
-import {PopoverController} from "@ionic/angular";
+import {Component, OnInit} from '@angular/core';
+import {SubjectService} from '../services/subject.service';
+import {Storage} from '@ionic/storage';
+import {HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-available-subjects',
@@ -16,7 +15,6 @@ export class AvailableSubjectsPage implements OnInit {
   constructor(
     private subjectService: SubjectService,
     private storage: Storage,
-    private popoverController: PopoverController,
   ) { }
 
   async ngOnInit() {
@@ -24,9 +22,9 @@ export class AvailableSubjectsPage implements OnInit {
     console.log('token: ', token);
     const headers = new HttpHeaders().set('Authorization', token ? `Bearer ${token.token}` : null);
 
-    this.subjectService.getAvailableSubjects(headers)
+    this.subjectService.getAvailableSubjects()
       .subscribe((response: any) => {
-        console.log('response: ', response.data);
+        console.log('responsePage: ', response.data);
         this.subjects = response.data;
       });
   }

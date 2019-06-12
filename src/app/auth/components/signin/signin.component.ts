@@ -34,15 +34,7 @@ export class SigninComponent implements OnInit {
       const payload = await this.googlePlus.login({
         webClientId: environment.googleplus.webClientId,
       });
-
-      // Forma 1.
       const params = new HttpParams().set('idToken', payload.idToken);
-
-      // // Forma 2.
-      // const params = {
-      //   'idToken': payload.idToken,
-      // };
-
       this.sessionService.signin(params).subscribe(
         (response: any) => {
           if (response.user) {
