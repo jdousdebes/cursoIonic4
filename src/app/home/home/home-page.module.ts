@@ -5,14 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { Home2Page } from './home2.page';
+import { HomePage } from './home-page.component';
 import {SharedModule} from '../../shared/shared.module';
 import {AuthModule} from '../../auth/auth.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: Home2Page
+    component: HomePage
   }
 ];
 
@@ -25,6 +25,6 @@ const routes: Routes = [
     SharedModule,
     AuthModule,
   ],
-  declarations: [Home2Page]
+  declarations: [HomePage]
 })
-export class Home2PageModule {}
+export class HomePageModule {}
