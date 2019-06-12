@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{subject?.name}}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button *ngIf="! subject?.inMySubjects" (click)="joinSubject(subject.id)" color="primary" fill="solid">Unirse a la materia</ion-button>
+      <ion-chip *ngIf="subject?.inMySubjects" color="success">
+        <ion-label>Ya estas registrado en la materia!</ion-label>
+      </ion-chip>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="subject">
+    <ion-card-header>
+      <ion-card-title>{{subject.name}}</ion-card-title>
+      <ion-card-subtitle>{{subject.proffesor.name}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{subject.description}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

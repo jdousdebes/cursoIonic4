@@ -36,8 +36,8 @@ export function jwtOptionsFactory() {
 }
 
 @NgModule({
-  declarations: [AppComponent, SubjectDetailComponent],
-  entryComponents: [SubjectDetailComponent],
+  declarations: [AppComponent],
+  entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

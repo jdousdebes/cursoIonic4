@@ -22,11 +22,6 @@ export class AppComponent {
       url: '/available-subjects',
       icon: 'list',
     },
-    {
-      title: 'Mi perfil',
-      url: '/my-profile',
-      icon: 'person',
-    },
   ];
 
   constructor(
