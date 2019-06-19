@@ -4,6 +4,10 @@
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
     <ion-title>Mis materias</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-toggle [(ngModel)]="mySubjectsOnly" (ionChange)="changeSubjects()"></ion-toggle>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

@@ -7,7 +7,7 @@ import { SubjectService } from '../services/subject.service';
   styleUrls: ['./available-subjects.page.scss'],
 })
 export class AvailableSubjectsPage implements OnInit {
-  subjects: any;
+  subjects: any[];
 
   constructor(private subjectService: SubjectService) {}
 
