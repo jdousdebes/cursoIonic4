@@ -23,4 +23,8 @@ export class SubjectService {
   joinSubject(subjectId) {
     return this.http.post(environment.api + 'subjects/' + subjectId + '/join', {});
   }
+
+  exitFromSubject(subjectId) {
+    return this.http.post(environment.api + 'subjects/' + subjectId + '/exit', {});
+  }
 }

@@ -25,4 +25,10 @@ export class SubjectPage implements OnInit {
       this.subject = response.data;
     });
   }
+
+  exitFromSubject(subjectId) {
+    this.subjectService.exitFromSubject(subjectId).subscribe((response: any) => {
+      this.subject = response.data;
+    });
+  }
 }

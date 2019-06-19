@@ -27,5 +27,8 @@
         </ion-card-content>
       </ion-card>
     </ion-row>
+    <ion-row justify-content-center>
+      <ion-button *ngIf="subject?.inMySubjects" (click)="exitFromSubject(subject.id)" color="danger" size="small" fill="outline" shape="round">Desubscribirse</ion-button>
+    </ion-row>
   </ion-grid>
 </ion-content>
