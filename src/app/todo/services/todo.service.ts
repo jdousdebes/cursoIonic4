@@ -14,7 +14,7 @@ export class TodoService {
 
   getCompletedTodos() {
     return this.http.get(environment.api + 'todos', {
-      params: { completed: true },
+      params: { completed: 'true' },
     });
   }
 
