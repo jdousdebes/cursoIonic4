@@ -41,7 +41,6 @@ export class TodoListComponent implements OnInit {
   }
 
   todoChange(todo: any) {
-    console.debug('todoChange', todo);
     this.todoService.changeTodoStatus(todo.id, todo.completed).subscribe(() => {
       this.getTodos();
     });
