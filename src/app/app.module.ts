@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import {Geolocation} from "@ionic-native/geolocation/ngx";
 
 // JWT
 const storage = new Storage({});
@@ -63,7 +64,7 @@ export function jwtOptionsFactory() {
 
     environment.production ? [] : AkitaNgDevtools.forRoot(),
   ],
-  providers: [StatusBar, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, GooglePlus],
+  providers: [StatusBar, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, GooglePlus, Geolocation],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

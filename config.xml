@@ -3,7 +3,7 @@
     <name>MyApp</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://172.31.203.211:8100" />
+    <content original-src="index.html" src="http://localhost:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -92,5 +92,7 @@
     </plugin>
     <allow-navigation href="http://192.168.1.105:8100" sessionid="b8b87273" />
     <allow-navigation href="http://172.31.203.211:8100" sessionid="85e1259f" />
+    <plugin name="cordova-plugin-geolocation" spec="4.0.2" />
+    <allow-navigation href="http://localhost:8100" sessionid="be6d2715" />
     <engine name="browser" spec="5.0.4" />
 </widget>

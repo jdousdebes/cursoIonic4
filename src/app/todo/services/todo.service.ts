@@ -18,8 +18,8 @@ export class TodoService {
     });
   }
 
-  addTodo(todo: string) {
-    return this.http.post(environment.api + 'todos', { todo: todo });
+  addTodo(todo: string, latitude: string, longitude: string) {
+    return this.http.post(environment.api + 'todos', { todo: todo, latitude: latitude, longitude: longitude});
   }
 
   changeTodoStatus(id: string, completed: boolean) {

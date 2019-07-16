@@ -14,6 +14,8 @@
       <ion-checkbox [(ngModel)]="todo.completed" (ionChange)="todoChange(todo)"></ion-checkbox>
     </ion-row>
     <ion-label> {{ todo.todo }} </ion-label>
+    <ion-chip color="primary">{{ todo.latitude }}</ion-chip>
+    <ion-chip color="secondary">{{ todo.longitude }}</ion-chip>
     <ion-button slot="end" (click)="deleteTodo(todo)" fill="clear">
       <ion-icon name="trash" color="danger"></ion-icon>
     </ion-button>
@@ -27,6 +29,8 @@
       <ion-checkbox [(ngModel)]="todo.completed" (ionChange)="todoChange(todo)"></ion-checkbox>
     </ion-row>
     <ion-label> {{ todo.todo }} </ion-label>
+    <ion-chip color="primary">{{ todo.latitude }}</ion-chip>
+    <ion-chip color="secondary">{{ todo.longitude }}</ion-chip>
     <ion-button slot="end" (click)="deleteTodo(todo)" fill="clear">
       <ion-icon name="trash" color="danger"></ion-icon>
     </ion-button>
