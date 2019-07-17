@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../../services/todo.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import {ToastService} from "../../../shared/services/toast.service";
+import { ToastService } from '../../../shared/services/toast.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -39,20 +39,19 @@ export class TodoListComponent implements OnInit {
   }
 
   async addTodo() {
-    let latLng: any;
-    await this.geolocation.getCurrentPosition()
-      .then((resp) => {
-        latLng = resp;
-      }).catch((error) => {
-        this.toastService.show('Error obteniendo la ubicación' + error, 1500);
-    });
-    return this.todoService.addTodo(this.form.get('todo').value, latLng.coords.latitude, latLng.coords.longitude)
-      .subscribe(() => {
-      this.form.reset({
-        todo: null,
-      });
-      this.getTodos();
-    });
+    try {
+      const latLng: any = await this.geolocation.getCurrentPosition();
+      return this.todoService
+        .addTodo(this.form.get('todo').value, latLng.coords.latitude, latLng.coords.longitude)
+        .subscribe(() => {
+          this.form.reset({
+            todo: null,
+          });
+          this.getTodos();
+        });
+    } catch (e) {
+      this.toastService.show('Error obteniendo la ubicación' + e, 1500);
+    }
   }
 
   todoChange(todo: any) {
