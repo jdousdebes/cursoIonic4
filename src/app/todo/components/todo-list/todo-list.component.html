@@ -1,4 +1,5 @@
 <ion-list lines="full">
+  <!--  Nueva tarea-->
   <form [formGroup]="form">
     <ion-item>
       <ion-label position="floating">Nueva tarea</ion-label>
@@ -6,31 +7,35 @@
       <ion-button (click)="addTodo()" slot="end">Aceptar</ion-button>
     </ion-item>
   </form>
+
   <ion-row *ngIf="!todos?.length" justify-content-center>
     <h1>¡Buenisimo! No tienes ningunta tarea pendiente</h1>
   </ion-row>
+
+  <!--  Lista de todas las tareas pendientes-->
   <ion-item *ngFor="let todo of todos">
     <ion-row slot="start" align-items-center style="position: relative;">
       <ion-checkbox [(ngModel)]="todo.completed" (ionChange)="todoChange(todo)"></ion-checkbox>
     </ion-row>
-    <ion-label> {{ todo.todo }} </ion-label>
-    <ion-chip color="primary">{{ todo.latitude }}</ion-chip>
-    <ion-chip color="secondary">{{ todo.longitude }}</ion-chip>
+    <ion-row justify-content-between align-items-center class="w-full">
+      <ion-label> {{ todo.todo }} </ion-label>
+      <app-todo-map [latitude]="todo.latitude" [longitude]="todo.longitude"></app-todo-map>
+    </ion-row>
     <ion-button slot="end" (click)="deleteTodo(todo)" fill="clear">
       <ion-icon name="trash" color="danger"></ion-icon>
     </ion-button>
   </ion-item>
 
-  <ion-list-header>
-    Tareas completadas
-  </ion-list-header>
+  <!--Lista de tareas completadas-->
+  <ion-list-header> Tareas completadas </ion-list-header>
   <ion-item *ngFor="let todo of completedTodos">
     <ion-row slot="start" align-items-center style="position: relative;">
       <ion-checkbox [(ngModel)]="todo.completed" (ionChange)="todoChange(todo)"></ion-checkbox>
     </ion-row>
-    <ion-label> {{ todo.todo }} </ion-label>
-    <ion-chip color="primary">{{ todo.latitude }}</ion-chip>
-    <ion-chip color="secondary">{{ todo.longitude }}</ion-chip>
+    <ion-row justify-content-between align-items-center class="w-full">
+      <ion-label> {{ todo.todo }} </ion-label>
+      <app-todo-map [latitude]="todo.latitude" [longitude]="todo.longitude"></app-todo-map>
+    </ion-row>
     <ion-button slot="end" (click)="deleteTodo(todo)" fill="clear">
       <ion-icon name="trash" color="danger"></ion-icon>
     </ion-button>
