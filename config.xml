@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyApp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://localhost:8100" />
+<widget id="com.cursoionic4" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Curso Ionic 4</name>
+    <description>Curso Ionic 4</description>
+    <author email="info@hawk-srl.com" href="https://hawk-srl.com/">HAWK Team</author>
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -95,4 +95,5 @@
     <plugin name="cordova-plugin-geolocation" spec="4.0.2" />
     <allow-navigation href="http://localhost:8100" sessionid="be6d2715" />
     <engine name="browser" spec="5.0.4" />
+    <engine name="android" spec="~7.0.0" />
 </widget>
